@@ -18,3 +18,5 @@ Finally, the structured data must be in the proper format and include a minimum 
 I wanted to implement a reasonably polished front-end, so I've used client-side JavaScript and Bootstrap styling to implement a simple form.  When the user clicks the *Create Trip* button, client-side functions assemble the data from the input fields into a JavaScript object in the proper format.  This object is passed to a server-side function where it is top-and-tailed with the necessary html tags and sent in an email to the user's own address.
 
 I've published the web app [here](https://goo.gl/grOK2u).  You'll need to be signed in to Google and authorise the app to send emails using your Gmail account.  Just fill in the details of the reservation and click *Create Trip*.  An email should arrive in your inbox pretty much immediately, and Inbox should create a new Trip bundle a few minutes (or hours) later... be patient, it works in the end!
+
+NEW! Thanks to [Onlinedispatcher](https://github.com/Onlinedispatcher) for adding a tab for creating flights.
