@@ -1,240 +1,227 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <!-- Use a templated HTML printing scriptlet to import common stylesheet. -->
-    <?!= include('stylesheet'); ?>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-  
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#hotel"><h4>Hotel Reservation</h4></a></li>
-    <li><a data-toggle="tab" href="#flight"><h4>Flight</h4></a></li>
-    <li><a data-toggle="tab" href="#event"><h4>Event</h4></a></li>
-  </ul>
-  
-  <div class="tab-content bg-1">
-    <div id="hotel" class="tab-pane fade in active">
-        
-      <div class="container-fluid">  
-        <div class="row">  
-          <form class = "form-horizontal" role="form" id="hotel-form">
-            <div id="input-fields-div">
-              <div class="form-group">
-                <label for="reservation-id-hotel" class="control-label col-sm-2">Reservation id:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="reservation-id-hotel" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="hotel-person-name" class="control-label col-sm-2">Reservation on name:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="hotel-person-name" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="lodging-name" class="control-label col-sm-2">Hotel:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="lodging-name" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="street-address" class="control-label col-sm-2">Street:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="street-address" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="locality-address" class="control-label col-sm-2">Locality:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="locality-address" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="region-address" class="control-label col-sm-2">Region:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="region-address" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="postalcode" class="control-label col-sm-2">Postal code:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="postalcode" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="country-address" class="control-label col-sm-2">Country:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="country-address" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="telephone" class="control-label col-sm-2">Telephone:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="telephone" class="form-control"/> (include international prefix)
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="checkin-date" class="control-label col-sm-2">Check In:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="checkin-date" class="form-control"/> (yyyy-mm-dd)
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="checkout-date" class="control-label col-sm-2">Check Out:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="checkout-date" class="form-control"/> (yyyy-mm-dd)
-                </div>
-              </div>
+   <head>
+      <!-- Use a templated HTML printing scriptlet to import common stylesheet. -->
+      <?!= include('stylesheet'); ?>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+   <body>
+      <ul class="nav nav-tabs">
+         <li class="active">
+            <a data-toggle="tab" href="#hotel">
+               <h4>Hotel Reservation</h4>
+            </a>
+         </li>
+         <li>
+            <a data-toggle="tab" href="#flight">
+               <h4>Flight</h4>
+            </a>
+         </li>
+         <li>
+            <a data-toggle="tab" href="#event">
+               <h4>Event</h4>
+            </a>
+         </li>
+      </ul>
+      <div class="tab-content bg-1">
+         <div id="hotel" class="tab-pane fade in active">
+            <div class="container-fluid">
+               <form class="form-horizontal" role="form" id="hotel-form">
+                  <div class="row">
+                     <div id="input-fields-div">
+                        <div class="form-group">
+                           <label for="reservation-id-hotel" class="control-label col-sm-2">Reservation id:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="reservation-id-hotel" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="hotel-person-name" class="control-label col-sm-2">Reservation on name:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="hotel-person-name" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="lodging-name" class="control-label col-sm-2">Hotel:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="lodging-name" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="street-address" class="control-label col-sm-2">Street:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="street-address" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="locality-address" class="control-label col-sm-2">Locality:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="locality-address" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="region-address" class="control-label col-sm-2">Region:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="region-address" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="postalcode" class="control-label col-sm-2">Postal code:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="postalcode" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="country-address" class="control-label col-sm-2">Country:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="country-address" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="telephone" class="control-label col-sm-2">Telephone:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="telephone" class="form-control"/> (include international prefix)
+                           </div>
+                        </div>
+                        <div class="form-group required">
+                           <label for="checkin-date" class="control-label col-sm-2">Check In:</label>
+                           <div class="col-sm-10">
+                              <input type="date" required="required" id="checkin-date" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group required">
+                           <label for="checkout-date" class="control-label col-sm-2">Check Out:</label>
+                           <div class="col-sm-10">
+                              <input type="date" required="required" id="checkout-date" class="form-control"/>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="control-panel" class="row">
+                     <div class="col-sm-3">
+                        <input type="submit" id="create-trip-btn" value="Create Trip" class="btn btn-primary"/>
+                        <input type="button" id="reset-btn" value="Reset" onclick="resetForm()" class="btn btn-default"/>
+                     </div>
+                     <div id="output-success" class="col-sm-9 alert alert-success hidden">
+                        <strong>Success!</strong> Confirmation mail sent.
+                        <a data-toggle="collapse" data-target="#success-message" class="small text-success">  (Details)</a>
+                        <img id="result" width="150">
+                        <div id="success-message" class="collapse small"></div>
+                     </div>
+                     <div id="output-failure" class="col-sm-9 alert alert-danger hidden">
+                        <strong>Oops!</strong> Something went wrong...
+                        <a data-toggle="collapse" data-target="#error-message" class="small text-danger">  (Details)</a>
+                        <div id="error-message" class="collapse small"></div>
+                     </div>
+                  </div>
+               </form>
             </div>
-          </form>
-        </div>
-      
-        <div id="control-panel" class="row">
-        
-          <div class="col-sm-3">
-            <input type="button" id="create-trip-btn" value="Create Trip" onclick="sendHotelReservation()" class="btn btn-primary"/>
-            <input type="button" id="reset-btn" value="Reset" onclick="resetForm()" class="btn btn-default"/>
-          </div>
-            
-          <div id="output-success" class="col-sm-9 alert alert-success hidden">
-            <strong>Success!</strong> Confirmation mail sent.
-            <a data-toggle="collapse" data-target="#success-message" class="small text-success">  (Details)</a>
-            <img id="result" width="150">
-            <div id="success-message" class="collapse small"></div>
-          </div>
-          
-          <div id="output-failure" class="col-sm-9 alert alert-danger hidden">
-            <strong>Oops!</strong> Something went wrong...
-            <a data-toggle="collapse" data-target="#error-message" class="small text-danger">  (Details)</a>
-            <div id="error-message" class="collapse small"></div>
-          </div>
-          
-        </div>
-      
+         </div>
+         <!-- Flights here -->
+         <div id="flight" class="tab-pane fade">
+            <div class="container-fluid">
+               <div class="row">
+                  <form class = "form-horizontal" role="form" id="flight-form">
+                     <div id="input-fields-div">
+                        <div class="form-group">
+                           <label for="reservation-id-flight" class="control-label col-sm-2">Reservation id:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="reservation-id-flight" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="flight-person-name" class="control-label col-sm-2">Person-Name:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="flight-person-name" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="flight-number" class="control-label col-sm-2">Flight-Number:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="flight-number" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="airline-name" class="control-label col-sm-2">Airline-Name:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="airline-name" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="airline-iata-code" class="control-label col-sm-2"> <a href="http://www.iata.org/publications/Pages/code-search.aspx">Airline-Iata-Code:</a></label>
+                           <div class="col-sm-10">
+                              <input type="text" id="airline-iata-code" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="departure-airport-name" class="control-label col-sm-2">Departure-Airport-Name:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="departure-airport-name" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="departure-airport-iata-code" class="control-label col-sm-2"><a href="http://www.iata.org/publications/Pages/code-search.aspx">Departure-Airport-Iata-Code:</a></label>
+                           <div class="col-sm-10">
+                              <input type="text" id="departure-airport-iata-code" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group required">
+                           <label for="departure-time" class="control-label col-sm-2">Departure-Time:</label>
+                           <div class="col-sm-10">
+                              <input type="datetime-local" required="required" id="departure-time" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="arrival-airport-name" class="control-label col-sm-2">Arrival-Airport-Name:</label>
+                           <div class="col-sm-10">
+                              <input type="text" id="arrival-airport-name" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="arrival-airport-iata-code" class="control-label col-sm-2"><a href="http://www.iata.org/publications/Pages/code-search.aspx">Arrival-Airport-Iata-Code:</a></label>
+                           <div class="col-sm-10">
+                              <input type="text" id="arrival-airport-iata-code" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="form-group required">
+                           <label for="arrival-time" class="control-label col-sm-2">Arrival-Time:</label>
+                           <div class="col-sm-10">
+                              <input type="datetime-local" required="required" id="arrival-time" class="form-control"/>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+               <div id="control-panel" class="row">
+                  <div class="col-sm-3">
+                     <input type="button" id="create-flight-btn" value="Create Flight" onclick="sendFlightReservation()" class="btn btn-primary"/>
+                     <input type="button" id="reset-btn" value="Reset" onclick="resetForm()" class="btn btn-default"/>
+                  </div>
+                  <div id="output-success-flight" class="col-sm-9 alert alert-success hidden">
+                     <strong>Success!</strong> Confirmation mail sent.
+                     <a data-toggle="collapse" data-target="#success-message" class="small text-success">  (Details)</a>
+                     <img id="result" width="150">
+                     <div id="success-message" class="collapse small"></div>
+                  </div>
+                  <div id="output-failure-flight" class="col-sm-9 alert alert-danger hidden">
+                     <strong>Oops!</strong> Something went wrong...
+                     <a data-toggle="collapse" data-target="#error-message" class="small text-danger">  (Details)</a>
+                     <div id="error-message" class="collapse small"></div>
+                  </div>
+               </div>
+            </div>
+            <!--container fluid-->
+         </div>
+         <!--Flights-->
+         <!-- Flights above -->
+         <div id="event" class="tab-pane fade">
+         </div>
       </div>
-
-    </div>
-    
-    
-    <!-- Flights here -->
-    <div id="flight" class="tab-pane fade">
-        
-      <div class="container-fluid">  
-      
-         <div class="row">  
-          <form class = "form-horizontal" role="form" id="flight-form">
-            <div id="input-fields-div">
-              <div class="form-group">
-                <label for="reservation-id-flight" class="control-label col-sm-2">Reservation id:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="reservation-id-flight" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="flight-person-name" class="control-label col-sm-2">Person-Name:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="flight-person-name" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="flight-number" class="control-label col-sm-2">Flight-Number:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="flight-number" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="airline-name" class="control-label col-sm-2">Airline-Name:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="airline-name" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="airline-iata-code" class="control-label col-sm-2"> <a href="http://www.iata.org/publications/Pages/code-search.aspx">Airline-Iata-Code:</a></label>
-                <div class="col-sm-10">
-                  <input type="text" id="airline-iata-code" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="departure-airport-name" class="control-label col-sm-2">Departure-Airport-Name:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="departure-airport-name" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="departure-airport-iata-code" class="control-label col-sm-2"><a href="http://www.iata.org/publications/Pages/code-search.aspx">Departure-Airport-Iata-Code:</a></label>
-                <div class="col-sm-10">
-                  <input type="text" id="departure-airport-iata-code" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="departure-time" class="control-label col-sm-2">Departure-Time:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="departure-time" class="form-control"/> (2017-03-09T00:00:00.000Z, ISO-Format)
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="arrival-airport-name" class="control-label col-sm-2">Arrival-Airport-Name:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="arrival-airport-name" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="arrival-airport-iata-code" class="control-label col-sm-2"><a href="http://www.iata.org/publications/Pages/code-search.aspx">Arrival-Airport-Iata-Code:</a></label>
-                <div class="col-sm-10">
-                  <input type="text" id="arrival-airport-iata-code" class="form-control"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="arrival-time" class="control-label col-sm-2">Arrival-Time:</label>
-                <div class="col-sm-10">
-                  <input type="text" id="arrival-time" class="form-control"/> (2017-03-09T00:00:00.000Z, ISO-Format)
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      
-        <div id="control-panel" class="row">
-        
-          <div class="col-sm-3">
-            <input type="button" id="create-flight-btn" value="Create Flight" onclick="sendFlightReservation()" class="btn btn-primary"/>
-            <input type="button" id="reset-btn" value="Reset" onclick="resetForm()" class="btn btn-default"/>
-          </div>
-            
-          <div id="output-success-flight" class="col-sm-9 alert alert-success hidden">
-            <strong>Success!</strong> Confirmation mail sent.
-            <a data-toggle="collapse" data-target="#success-message" class="small text-success">  (Details)</a>
-            <img id="result" width="150">
-            <div id="success-message" class="collapse small"></div>
-          </div>
-          
-          <div id="output-failure-flight" class="col-sm-9 alert alert-danger hidden">
-            <strong>Oops!</strong> Something went wrong...
-            <a data-toggle="collapse" data-target="#error-message" class="small text-danger">  (Details)</a>
-            <div id="error-message" class="collapse small"></div>
-          </div>
-          
-        </div>
-      
-      
-      </div> <!--container fluid-->
-      
-    </div>  <!--Flights-->
-    <!-- Flights above -->
-    
-    
-
-    <div id="event" class="tab-pane fade">
-    </div>
-    
-  </div>
-  
-    <!-- Use a templated HTML printing scriptlet to import client-side JavaScript. -->
-    <?!= include('javascript'); ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-  </body>
+      <!-- Use a templated HTML printing scriptlet to import client-side JavaScript. -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+      <?!= include('javascript'); ?>
+   </body>
 </html>
