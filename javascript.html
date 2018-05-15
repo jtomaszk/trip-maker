@@ -1,29 +1,39 @@
-﻿<script>
+<script>
 /* This file contains the client-side JavaScript functions */
+
+function disable(button) {
+  document.getElementById(button).classList.add('disabled');
+  document.getElementById(button).disabled = true;
+}
+
+function enable(button) {
+  document.getElementById(button).classList.remove('disabled');
+  document.getElementById(button).disabled = false;
+}
 
 function onSuccess(message) {
 // Unhide success message and re-enable submit button
   document.getElementById('output-success').classList.remove('hidden');
   document.getElementById('output-success-flight').classList.remove('hidden');
-  document.getElementById('create-trip-btn').classList.remove('disabled');
-  document.getElementById('create-flight-btn').classList.remove('disabled');
+  enable('create-trip-btn');
+  enable('create-flight-btn'); 
   document.getElementById('success-message').innerHTML=message;
 }
 
 function onFailure(error) {
 // Unhide error message and re-enable submit button
   document.getElementById('output-failure').classList.remove('hidden');
-  document.getElementById('output-failure-flight').classList.remove('hidden');
-  document.getElementById('create-trip-btn').classList.remove('disabled');
-  document.getElementById('create-flight-btn').classList.remove('disabled');
+  document.getElementById('output-failure-flight').classList.remove('hidden');  
+  enable('create-trip-btn');
+  enable('create-flight-btn');  
   document.getElementById("error-message").innerHTML=error;
 }
 
 function sendFlightReservation(){
   document.getElementById('output-success-flight').classList.add('hidden');
   document.getElementById('output-failure-flight').classList.add('hidden');  //todo is only on the first tab. correct
-  document.getElementById('create-flight-btn').classList.add('disabled');
-
+  disable('create-flight-btn');
+  
   try {
     var departureTime = new Date(document.getElementById("departure-time").value).toISOString();  //todo needs to be exact time 2017-03-09T00:00:00.000Z
     var arrivalTime = new Date(document.getElementById("arrival-time").value).toISOString();      ////todo needs to be exact time 2017-03-09T03:10:40+01:00
@@ -67,11 +77,21 @@ function sendFlightReservation(){
 
 }
 
+$('#hotel-form').validator().on('submit', function (e) {
+  if (e.isDefaultPrevented()) {
+    // handle the invalid form...
+  } else {    
+    sendHotelReservation();
+  }
+  return false;
+})
+
 function sendHotelReservation() {
 // Create lodging reservation as JSON object
   document.getElementById('output-success').classList.add('hidden');
   document.getElementById('output-failure').classList.add('hidden');
-  document.getElementById('create-trip-btn').classList.add('disabled');
+  disable('create-trip-btn');
+  
   try {
     var checkinDate = new Date(document.getElementById("checkin-date").value).toISOString();
     var checkoutDate = new Date(document.getElementById("checkout-date").value).toISOString();
@@ -104,22 +124,27 @@ function sendHotelReservation() {
   }
 
   // Fetch image url using Google custom search API (https://console.developers.google.com/apis/api/customsearch/overview?project=trip-maker-1289)
-  var cx = '009891904701887899163:dqr5_ybksys';
-  var key = 'AIzaSyCo0fnVbfTN7Mjnwr14mNK89R5UUcGMjOs';
+  var cx = '005806362248324611234:mebvlb8mxys';
+  var key = 'AIzaSyCGipfkbbK3c3Wt7dFx_iLOsT9JtDhWUDg';
   var query = document.getElementById("lodging-name").value + ' ' + document.getElementById("locality-address").value;
   var url = 'https://www.googleapis.com/customsearch/v1?key='+key+'&cx='+cx+'&num=1&searchType=image&q='+query;
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      // Image URL is returned from custom search API; add this to hotel booking
-      hotelBooking.reservationFor.image = JSON.parse(xmlhttp.responseText).items[0].link;
-
+      // Image URL is returned from custom search API; add this to hotel booking       
+      var result = JSON.parse(xmlhttp.responseText);
+      if (result.searchInformation.totalResults != '0') {
+        var imageURL = result.items[0].link;
+        hotelBooking.reservationFor.image = imageURL;      
+      }
+      
       // Call server-side function to send email with hotel booking details
       google.script.run
         .withSuccessHandler(onSuccess)
         .withFailureHandler(onFailure)
         .sendEmail(hotelBooking);
-
+    } else if(xmlhttp.status >= 400) {
+      onFailure('Error on fetch image url ');      
     }
   };
   xmlhttp.open("GET", url, true);
@@ -136,26 +161,10 @@ function resetForm() {
   document.getElementById('output-failure').classList.add('hidden');
   document.getElementById('output-success-flight').classList.add('hidden');
   document.getElementById('output-failure-flight').classList.add('hidden');
-  document.getElementById('create-trip-btn').classList.remove('disabled');
-  document.getElementById('create-flight-btn').classList.remove('disabled');
+  enable('create-trip-btn');
+  enable('create-flight-btn');
   document.getElementById('hotel-form').reset();
   document.getElementById('flight-form').reset();
-}
-
-function getImageURL(query) {
-// Fetch image url using Google custom search API
-  var cx = '009891904701887899163:dqr5_ybksys';
-  var key = 'AIzaSyCo0fnVbfTN7Mjnwr14mNK89R5UUcGMjOs';
-  var url = 'https://www.googleapis.com/customsearch/v1?key='+key+'&cx='+cx+'&num=1&searchType=image&q='+query;
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      var imageURL = JSON.parse(xmlhttp.responseText).items[0].link;
-      document.getElementById("result").src = imageURL;
-    }
-  };
-  xmlhttp.open("GET", url, true);
-  xmlhttp.send();
 }
 
 </script>
